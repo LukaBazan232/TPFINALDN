@@ -27,10 +27,15 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route('/jiji')
     def jaja():
-        return 'Hello, World!'
+        return 'Hola, Mundo!'
     
 
     from . import db
     db.init_app(app)
+
+
+    from . import peliculas
+    app.register_blueprint(peliculas.bp)
+    app.add_url_rule('/', endpoint='index')
 
     return app
