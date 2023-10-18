@@ -5,13 +5,12 @@ from werkzeug.exceptions import abort
 
 from Aplicacion.db import get_db
 
-bp = Blueprint('peliculas', __name__,url_prefix="/peliculas/")
+bp = Blueprint('category', __name__,url_prefix="/category/")
 
 @bp.route('/')
 def index():
     db = get_db()
-    peliculas = db.execute(
-        """SELECT f.title AS titulo FROM film f """
+    category = db.execute(
+        """SELECT c.name AS categorias FROM category c """
     ).fetchall()
-    return render_template('peliculas/index.html', peliculas=peliculas)
-
+    return render_template('category/index.html', category = category)
