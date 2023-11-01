@@ -15,3 +15,14 @@ def index():
     ).fetchall()
     return render_template('peliculas/index.html', peliculas=peliculas)
 
+
+
+@bp.route('/<int:id>/')
+def detalle(id):
+    db = get_db()
+    pelicula = db.execute(
+        """SELECT f.title AS titulo ,rating as clasificacion FROM film f 
+            WHERE f.film_id = ?
+        """, (id,)
+    ).fetchone()
+    return render_template('peliculas/detalle.html', pelicula=pelicula)
