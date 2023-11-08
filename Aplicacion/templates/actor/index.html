@@ -1,19 +1,17 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Peliculas{% endblock %}</h1>
+  <h1>{% block title %}Actores{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-  {% for pel in peliculas %}
+  {% for actor in actores %}
     <article class="post">
       <header>
         <div>
-          <h1><a href="{{url_for('peliculas.detalle', id=pel['film_id'])}}">{{ pel['titulo'] }}</a></h1>
-          <div class="about"></div>
+          <h1>{{ actor['nombre'] }} {{actor['apellido'] }}</h1>
         </div>
       </header>
-      <p class="body"></p>
     </article>
     {% if not loop.last %}
       <hr>

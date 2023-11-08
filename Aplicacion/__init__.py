@@ -44,6 +44,9 @@ def create_app(test_config=None):
 
     from . import language
     app.register_blueprint(language.bp)
+
+    from . import actor
+    app.register_blueprint(actor.bp)
    
  
     return app
