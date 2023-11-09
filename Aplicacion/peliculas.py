@@ -30,4 +30,7 @@ def detalle(id):
             WHERE f.film_id = ?
         """, (id,)
     ).fetchone()
+
+    
+
     return render_template('peliculas/detalle.html', pelicula=pelicula)
