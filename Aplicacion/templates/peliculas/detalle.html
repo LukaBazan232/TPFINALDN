@@ -13,6 +13,15 @@
 <h1>duracion: {{ pelicula['tiempo'] }}</h1>
 <h1>idioma: {{ pelicula['idioma'] }}</h1>
 <p>descripcion: {{ pelicula['descripcion'] }}</p>
-
-
+<h2>reparto</h2>
+{% for reparto in actores %}
+    <article class="post">
+      <header>
+        <div>
+          <h1><a href="{{url_for('actor.get_actor', id=reparto['actor_id'])}}">{{ reparto['nombre'] }} {{ reparto['apellido'] }}</a></h1>
+        </div>
+      </header>
+    </article>
+{% endfor %}
 {% endblock %}
+
